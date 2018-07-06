@@ -1,0 +1,14 @@
+#MATLAB code to plot sine and cosine signals
+#frequency = 10Hz
+
+clc; clear all; close all;
+f=1000;
+t=[0.01:1/f:1];
+x=sin(2*pi*10*t);
+y=cos(2*pi*10*t);
+figure
+subplot(211)
+plot(t,x)
+subplot(212)
+plot(t,y)
+
