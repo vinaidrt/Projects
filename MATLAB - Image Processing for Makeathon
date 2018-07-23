@@ -1,0 +1,44 @@
+%This code was composed during SELECT 48-hr Makeathon, VIT Vellore, India, as part of the
+%Project titled "Rooted Support System"
+
+%Other codes pertaining to the project have been placed in different repositories
+
+%MATLAB code for image processing of leaves to predict the onset of diseases
+
+%@VinaiDRT
+
+%Federer Forever
+%and so is LINKIN PARRRRRK.!
+
+clc; clear all; close all;
+
+img = imread(" ..... "); %Either path name of the image file if not in the same folder
+                         %Or the name of the image.jpg if in the same directory
+im=imresize([256,256]);  %Any image of any pixel dimensions is mapped into 256*256 
+figure
+imshow(im); %Display the resized image
+
+grayim = rgb2gray(im); %command to convert RGB image to Grayscale
+%Use imshow here if necessary
+[intensity, bins]=imhist(grayim); %Imhist returns a histogram, number of the pixels vs. intensity
+figure
+stem(bins, intensity); 
+
+threshold = input("Enter the required threshold value");
+%Assuming that the input given by user is 128
+threshold = 128;
+binary = grayim<threshold; %Check the variable threshold in the Matlab window for a clearer picture
+binary = imfill(binary, 'holes'); %Fill the background pizels with holes
+im1 = imgray>threshold
+figure
+subplot(121)
+imshow(binary);
+subplot(122)
+imshow(im1);
+
+leafArea = sum(binaryImage(:))
+defectArea = sum(defectImage(:))
+disp('The equivalent Pixel count is: ');
+defectArea/leafArea * 100
+
+%***___THE.END___***
